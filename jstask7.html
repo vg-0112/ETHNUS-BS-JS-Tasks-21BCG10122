@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Control</title>
+    <style>
+        /* CSS for the animated element */
+        .container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-top: 15px;
+        }
+
+        .animated-element {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            animation: moveAnimation 2s linear infinite;
+        }
+
+        @keyframes moveAnimation {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: calc(100% - 50px);
+            }
+        }
+        div#first{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+        <h1>Task 7</h1>
+        <a href="javascript.html">Go To Tasks List</a>
+    </div>
+    <button id="startButton">Start Animation</button>
+    <button id="stopButton" disabled>Stop Animation</button>
+    <div class="container">
+        <div class="animated-element"></div>
+    </div>
+
+    <script>
+        // JavaScript to control the animation
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        let animationInterval;
+
+        // Function to start the animation
+        function startAnimation() {
+            startButton.disabled = true;
+            stopButton.disabled = false;
+            document.querySelector('.animated-element').style.animationPlayState = 'running';
+        }
+
+        // Function to stop the animation
+        function stopAnimation() {
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            document.querySelector('.animated-element').style.animationPlayState = 'paused';
+        }
+
+        // Event listeners for the buttons
+        startButton.addEventListener('click', startAnimation);
+        stopButton.addEventListener('click', stopAnimation);
+    </script>
+</body>
+</html>

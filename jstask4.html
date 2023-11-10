@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p#output {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+    <a href="javascript.html">Go to Tasks List</a>
+    <div class="container">
+        <h1>Show Date and Time</h1>
+        <button id="showDateButton">Show Date</button>
+        <button id="showTimeButton">Show Time</button>
+        <p id="output"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const showDateButton = document.getElementById("showDateButton");
+            const showTimeButton = document.getElementById("showTimeButton");
+            const outputElement = document.getElementById("output");
+
+            showDateButton.addEventListener("click", function () {
+                const currentDate = new Date();
+                const formattedDate = currentDate.toDateString();
+                outputElement.textContent = `Date: ${formattedDate}`;
+            });
+
+            showTimeButton.addEventListener("click", function () {
+                const currentTime = new Date();
+                const formattedTime = currentTime.toLocaleTimeString();
+                outputElement.textContent = `Time: ${formattedTime}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

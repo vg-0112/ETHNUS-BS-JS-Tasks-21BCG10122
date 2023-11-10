@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p#result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+    <a href="javascript.html">Go to Tasks List</a>
+    <div class="container">
+        <h1>Sort a String</h1>
+        <label for="stringInput">Enter a String:</label>
+        <input type="text" id="stringInput" placeholder="Enter a string">
+        <button id="sortButton">Sort</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stringInput = document.getElementById("stringInput");
+            const sortButton = document.getElementById("sortButton");
+            const resultElement = document.getElementById("result");
+
+            sortButton.addEventListener("click", function () {
+                const inputString = stringInput.value;
+                const sortedString = sortStringAlphabetically(inputString);
+                resultElement.textContent = `Sorted String: ${sortedString}`;
+            });
+
+            function sortStringAlphabetically(str) {
+                return str.split("").sort().join("");
+            }
+        });
+    </script>
+</body>
+
+</html>

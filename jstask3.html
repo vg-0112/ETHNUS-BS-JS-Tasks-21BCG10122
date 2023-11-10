@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p#result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+    <a href="javascript.html">Go to Tasks List</a>
+    <div class="container">
+        <h1>Calculator</h1>
+        <label for="num1">Enter first number:</label>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <label for="num2">Enter second number:</label>
+        <input type="number" id="num2" placeholder="Enter second number">
+        <label for="operation">Select operation:</label>
+        <select id="operation">
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <button id="calculateButton">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const num1Input = document.getElementById("num1");
+            const num2Input = document.getElementById("num2");
+            const operationSelect = document.getElementById("operation");
+            const calculateButton = document.getElementById("calculateButton");
+            const resultElement = document.getElementById("result");
+
+            calculateButton.addEventListener("click", function () {
+                const num1 = parseFloat(num1Input.value);
+                const num2 = parseFloat(num2Input.value);
+                const operation = operationSelect.value;
+
+                let result;
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    result = "Please enter valid numbers.";
+                } else {
+                    switch (operation) {
+                        case "multiply":
+                            result = `Result: ${num1} * ${num2} = ${num1 * num2}`;
+                            break;
+                        case "divide":
+                            if (num2 === 0) {
+                                result = "Division by zero is not allowed.";
+                            } else {
+                                result = `Result: ${num1} / ${num2} = ${num1 / num2}`;
+                            }
+                            break;
+                        default:
+                            result = "Invalid operation.";
+                    }
+                }
+
+                resultElement.textContent = result;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
